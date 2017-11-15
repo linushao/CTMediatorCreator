@@ -1,0 +1,30 @@
+//
+//  CTMediator+{{moduleName}}Actions.h
+//
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import "CTMediator+{{moduleName}}Actions.h"
+
+NSString * const kCTMediatorTarget_{{moduleName}} = @"{{moduleName}}";
+NSString * const kCTMediatorActionNativeTo_{{moduleName}}ViewController = @"NativeTo{{moduleName}}ViewController";
+
+@implementation CTMediator ({{moduleName}}Actions)
+
+- (UIViewController *)mediator_{{moduleName}}ViewControllerWithParams:(NSDictionary *)dict
+{
+    UIViewController *viewController = [self performTarget:kCTMediatorTarget_{{moduleName}}
+                                  action:kCTMediatorActionNativeTo_{{moduleName}}ViewController
+                                  params:dict
+                       shouldCacheTarget:YES];
+
+    if ([viewController isKindOfClass:[UIViewController class]]) {
+        return viewController;
+    } else {
+        NSLog(@"%@ 未能实例化页面", NSStringFromSelector(_cmd));
+        return [[UIViewController alloc] init];
+    }
+}
+
+@end

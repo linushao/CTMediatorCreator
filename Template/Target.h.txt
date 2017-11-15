@@ -1,0 +1,18 @@
+//
+//  Target_{{moduleName}}.h
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@interface Target_{{moduleName}} : NSObject
+
+{% if isNative %}
+- (UIViewController *)Action_nativeTo{{moduleName}}ViewController:(NSDictionary *)params;
+{% else %}
+- (UIViewController *)Action_To{{moduleName}}ViewController:(NSDictionary *)params;
+{% endif %}
+
+@end

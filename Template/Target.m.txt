@@ -1,0 +1,30 @@
+//
+//  Target_{{moduleName}}.h
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import "Target_{{moduleName}}.h"
+#import "{{moduleName}}ViewController.h"
+
+@implementation Target_{{moduleName}}
+
+{% if isNative %}
+- (UIViewController *)Action_nativeTo{{moduleName}}ViewController:(NSDictionary *)params
+{% else %}
+- (UIViewController *)Action_To{{moduleName}}ViewController:(NSDictionary *)params
+{% endif %}
+{
+    {{moduleName}}ViewController *{{moduleName}}VC = [[{{moduleName}}ViewController alloc] init];
+
+    /**
+        example:
+        if ([params valueForKey:@"<#model#>"]) {
+            {{moduleName}}VC.<#model#> = params[@"<#model#>"];
+        }
+     */
+
+    return {{moduleName}}VC;
+}
+
+@end

@@ -1,0 +1,11 @@
+//
+//  {{moduleName}}ViewController.h
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface {{moduleName}}ViewController : UIViewController
+
+@end
