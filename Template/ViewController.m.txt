@@ -18,8 +18,11 @@
 
 
 #import "{{moduleName}}ViewController.h"
+//#import "CTMediator+<#ActionName#>Actions.h"
 
 @interface {{moduleName}}ViewController ()
+
+//@property (nonatomic, strong) <#UIClass#> *<#object#>;
 
 @end
 
@@ -28,6 +31,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+	
+	[self setupUI];
 }
+
+
+#pragma mark - 初始化UI界面
+- (void)setupUI
+{
+	<#UI start#>
+}
+
+#pragma mark - 初始化各种UI事件
 
 @end

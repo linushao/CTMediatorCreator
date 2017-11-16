@@ -8,7 +8,7 @@
 #import "CTMediator+{{moduleName}}Actions.h"
 
 NSString * const kCTMediatorTarget_{{moduleName}} = @"{{moduleName}}";
-NSString * const kCTMediatorActionNativeTo_{{moduleName}}ViewController = @"NativeTo{{moduleName}}ViewController";
+NSString * const kCTMediatorActionNativeTo_{{moduleName}}ViewController = @"nativeTo{{moduleName}}ViewController";
 
 @implementation CTMediator ({{moduleName}}Actions)
 
