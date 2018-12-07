@@ -1,0 +1,68 @@
+//
+//  {{moduleName}}Request.m
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import "{{moduleName}}Request.h"
+
+
+@interface {{moduleName}}Request()
+
+@property (nonatomic, strong) {{moduleName}}RequestModel *model;
+
+@end
+
+
+
+@implementation {{moduleName}}Request
+
+- (instancetype)initWithModel:({{moduleName}}RequestModel *)model
+{
+    self = [super init];
+    if (self) {
+        self.model = model;
+    }
+    return self;
+}
+
+- (NSString *)requestUrl
+{
+    return @"<#Text#>";
+}
+
+- (YTKRequestMethod)requestMethod
+{
+    return <#YTKRequestMethod#>;
+}
+
+- (void)start
+{
+    NSString *toastText = @"";
+    
+//    if (![self.model.<#Text#> isNotBlank]) {
+//        toastText = LS(@"<#Text#>");
+//    }
+    
+    if ([toastText isNotBlank]) {
+        [YMHUDView showErrorMessage:toastText dismissBlock:nil];
+        return;
+    }
+    
+    [super start];
+}
+
+- (id)requestArgument
+{
+    if (self.model) {
+        return [self.model yy_modelToJSONObject];
+    } else {
+        return [super requestArgument];
+    }
+}
+
+@end
+
+
+@implementation {{moduleName}}RequestModel
+@end

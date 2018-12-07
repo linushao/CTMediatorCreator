@@ -37,8 +37,8 @@ def main():
 
 
     tools.mkDir(Controllers_path)
-    tools.mkDir(Models_path)
-    tools.mkDir(Views_path)
+#    tools.mkDir(Models_path)
+#    tools.mkDir(Views_path)
     tools.mkDir(Mediator_path)
 
 

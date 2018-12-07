@@ -1,0 +1,34 @@
+//
+//  {{moduleName}}View.h
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+
+#import <UIKit/UIKit.h>
+
+#define k{{moduleName}}ViewHeight  <#Height#>
+
+@class {{moduleName}}ViewModel;
+
+//@protocol {{moduleName}}ViewDelegate <NSObject>
+//@end
+
+@interface {{moduleName}}View : UIView
+
+//@property (nonatomic, weak) id <{{moduleName}}ViewDelegate> delegate;
+
+/// 页面高度
++ (CGFloat)viewHeight;
+/// 页面计算高度
+- (CGFloat)countHeight;
+
+/// 更新数据
+- (void)updateWithModel:({{moduleName}}ViewModel *)model;
+
+@end
+
+
+@interface {{moduleName}}ViewModel : NSObject
+//@property (nonatomic, copy) NSString *<#text#>;
+@end

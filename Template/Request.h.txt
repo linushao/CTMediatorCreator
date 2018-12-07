@@ -1,0 +1,24 @@
+//
+//  {{moduleName}}Request.h
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+
+#import "YMRequest.h"
+
+@class {{moduleName}}RequestModel;
+
+@interface {{moduleName}}Request : YMRequest
+
+- (instancetype)initWithModel:({{moduleName}}RequestModel *)model;
+
+@end
+
+
+
+@interface {{moduleName}}RequestModel : NSObject
+
+//@property (nonatomic, copy) NSString *<#Text#>;
+
+@end

@@ -3,6 +3,7 @@
 //  Created by {{author}} on {{date}}.
 //  Copyright © {{year}}年 {{author}}. All rights reserved.
 //
+//  XXX://{{moduleName}}/To{{moduleName}}ViewController?XXX=xxx
 
 #import "Target_{{moduleName}}.h"
 #import "{{moduleName}}ViewController.h"

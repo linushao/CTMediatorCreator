@@ -1,0 +1,118 @@
+//
+//  {{moduleName}}View.m
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import "{{moduleName}}View.h"
+
+@interface {{moduleName}}View()
+
+@property (nonatomic, strong) {{moduleName}}ViewModel *model;
+
+//@property (nonatomic, strong) UIImageView *<#module#>ImageView;
+//@property (nonatomic, strong) UILabel *<#module#>Label;
+//@property (nonatomic, strong) UIButton *<#module#>Button;
+
+@end
+
+
+
+@implementation {{moduleName}}View
+
+
+#pragma mark - Public Method（公有方法）
++ (CGFloat)viewHeight
+{
+    return k{{moduleName}}ViewHeight;
+}
+
+
+- (CGFloat)countHeight
+{
+    [self layoutIfNeeded];
+    UIView *lastView = self.subviews.lastObject;
+    return lastView.bottom;
+}
+
+
+- (void)updateWithModel:({{moduleName}}ViewModel *)model
+{
+    self.model = model;
+    [self setupSubviews];
+}
+
+
+#pragma mark - LifeCycle（声明周期）
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setupSubviews];
+    }
+    return self;
+}
+
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupSubviews];
+    }
+    return self;
+}
+
+
+#pragma mark - UI（自定义UI）
+- (void)setupSubviews
+{
+    self.width = self.width ?: kScreenWidth;
+    //self.backgroundColor = color_ffffff;
+
+    //[self <#addView#>];
+    
+    [self addLayout];
+}
+
+
+/**
+- (void)add<#View#>
+{
+    safeInitClass(<#obj#>, <#class#>);
+    safeAddSubview(<#view#>, <#superView#>);
+}
+ */
+
+
+- (void)addLayout
+{
+    __weak typeof(self) weakSelf = self;
+    
+}
+
+
+#pragma mark - Property（属性）
+- ({{moduleName}}ViewModel *)model
+{
+    if (!_model) {
+        _model = [[{{moduleName}}ViewModel alloc] init];
+    }
+    return _model;
+}
+
+
+#pragma mark - Delegate（代理)
+
+
+#pragma mark - Private Method（私有方法）
+
+
+#pragma mark - Action（响应事件）
+
+
+@end
+
+
+@implementation {{moduleName}}ViewModel
+@end

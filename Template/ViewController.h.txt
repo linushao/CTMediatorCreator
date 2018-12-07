@@ -4,8 +4,8 @@
 //  Copyright © {{year}}年 {{author}}. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YMViewController.h"
 
-@interface {{moduleName}}ViewController : UIViewController
+@interface {{moduleName}}ViewController : YMViewController
 
 @end

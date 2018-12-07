@@ -19,15 +19,86 @@
 
 #import "{{moduleName}}ViewController.h"
 
+// Tools
+
+// Data
+
+// Views
+
+// Models
+
+// Requests
+
+// Actions
+//#import "CTMediator+<#module#>Actions.h"
+
+
 @interface {{moduleName}}ViewController ()
+
+// Data
+//@property (nonatomic, copy) NSArray *dataSource;
+
+// Models
+
+// Views
+//@property (nonatomic, strong) <#View#> *<#View#>;
 
 @end
 
 @implementation {{moduleName}}ViewController
 
+#pragma mark - LifeCycle（声明周期）
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    [self setupSubviews];
 }
+
+
+#pragma mark - UI（自定义UI）
+- (void)setupSubviews
+{
+    [self addLayout];
+}
+
+
+/**
+- (void)add<#View#>
+{
+    safeInitClass(<#obj#>, <#class#>);
+    safeAddSubview(<#view#>, <#superView#>);
+}
+ */
+
+
+- (void)addLayout
+{
+    __weak typeof(self) weakSelf = self;
+}
+
+
+#pragma mark - Property（属性）
+
+
+#pragma mark - Delegate（代理)
+
+
+#pragma mark - Notification（通知）
+
+
+#pragma mark - Private Method（私有方法）
+
+
+#pragma mark - Public Method（公有方法）
+
+
+#pragma mark - Action（响应事件）
+
+
+#pragma mark - Network（网络事件）
+
+
+
 
 @end
