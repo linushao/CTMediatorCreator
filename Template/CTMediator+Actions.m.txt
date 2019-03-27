@@ -7,15 +7,12 @@
 
 #import "CTMediator+{{moduleName}}Actions.h"
 
-NSString * const kCTMediatorTarget_{{moduleName}} = @"{{moduleName}}";
-NSString * const kCTMediatorActionTo_{{moduleName}}ViewController = @"To{{moduleName}}ViewController";
-
 @implementation CTMediator ({{moduleName}}Actions)
 
 - (UIViewController *)mediator_{{moduleName}}ViewControllerWithParams:(NSDictionary *)dict
 {
-    UIViewController *viewController = [self performTarget:kCTMediatorTarget_{{moduleName}}
-                                  action:kCTMediatorActionTo_{{moduleName}}ViewController
+    UIViewController *viewController = [self performTarget:@"{{moduleName}}"
+                                  action:@"{{moduleName}}"
                                   params:dict
                        shouldCacheTarget:YES];
 

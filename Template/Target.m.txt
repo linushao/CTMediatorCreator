@@ -11,21 +11,21 @@
 @implementation Target_{{moduleName}}
 
 {% if isNative %}
-- (UIViewController *)Action_nativeTo{{moduleName}}ViewController:(NSDictionary *)params
+- (UIViewController *)Action_native{{moduleName}}:(NSDictionary *)params
 {% else %}
-- (UIViewController *)Action_To{{moduleName}}ViewController:(NSDictionary *)params
+- (UIViewController *)Action_{{moduleName}}:(NSDictionary *)params
 {% endif %}
 {
-    {{moduleName}}ViewController *{{moduleName}}VC = [[{{moduleName}}ViewController alloc] init];
+    {{moduleName}}ViewController *vc = [[{{moduleName}}ViewController alloc] init];
 
     /**
         example:
         if ([params valueForKey:@"<#model#>"]) {
-            {{moduleName}}VC.<#model#> = params[@"<#model#>"];
+            vc.<#model#> = params[@"<#model#>"];
         }
      */
 
-    return {{moduleName}}VC;
+    return vc;
 }
 
 @end

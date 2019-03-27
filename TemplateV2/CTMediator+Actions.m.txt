@@ -1,18 +1,18 @@
 //
-//  CTMediator+{{moduleName}}Actions.h
+//  CTMediator+{{actionName}}Actions.h
 //
 //  Created by {{author}} on {{date}}.
 //  Copyright © {{year}}年 {{author}}. All rights reserved.
 //
 
-#import "CTMediator+{{moduleName}}Actions.h"
+#import "CTMediator+{{targetName|lower}}{{actionName|title}}Actions.h"
 
-@implementation CTMediator ({{moduleName}}Actions)
+@implementation CTMediator ({{actionName}}Actions)
 
-- (UIViewController *)mediator_{{moduleName}}ViewControllerWithParams:(NSDictionary *)dict
+- (UIViewController *)mediator_{{targetName|lower}}{{actionName|title}}:(NSDictionary *)dict
 {
-    UIViewController *viewController = [self performTarget:@"{{moduleName}}"
-                                  action:@"native{{moduleName}}"
+    UIViewController *viewController = [self performTarget:@"{{targetName}}"
+                                  action:@"{{actionName}}"
                                   params:dict
                        shouldCacheTarget:YES];
 

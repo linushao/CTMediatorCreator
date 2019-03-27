@@ -11,10 +11,10 @@ def main():
             print('输错，再输一遍')
 
 
-    isNative = True;
+    isNative = False;
 
     while (1):
-        nativeType = input("请输入模块是否为本地模块(1为本地，0为公开模块，默认回车为本地1)：");
+        nativeType = input("请输入模块是否为公开模块(0为公开模块，1为本地，默认回车为公开0)：");
 
         if nativeType == '':
             break;
@@ -22,6 +22,13 @@ def main():
             if (int(nativeType) == 0):
                 isNative = False
                 break;
+
+            elif (int(nativeType) == 1):
+                isNative = True
+                break;
+            # else if (int(nativeType) == 1):
+            #     isNative = True
+            #     break;
             else:
                 print('输错，再输一遍')
 

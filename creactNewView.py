@@ -15,11 +15,12 @@ def main():
     dir_path = './' + moduleName
     tools.mkDir(dir_path)
 
+    saveView(dir_path, moduleName)
 
-    View_path = dir_path+'/View'
-    tools.mkDir(View_path)
-
-    saveView(View_path, moduleName)
+#    View_path = dir_path+'/View'
+#    tools.mkDir(View_path)
+#
+#    saveView(View_path, moduleName)
 
 
 

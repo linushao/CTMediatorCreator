@@ -1,5 +1,5 @@
 //
-//  Target_{{moduleName}}.h
+//  Target_{{targetName}}.h
 //  Created by {{author}} on {{date}}.
 //  Copyright © {{year}}年 {{author}}. All rights reserved.
 //
@@ -7,12 +7,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface Target_{{moduleName}} : NSObject
+@interface Target_{{targetName}} : NSObject
 
 {% if isNative %}
-- (UIViewController *)Action_native{{moduleName}}:(NSDictionary *)params;
+- (UIViewController *)Action_native{{actionName}}:(NSDictionary *)params;
 {% else %}
-- (UIViewController *)Action_{{moduleName}}:(NSDictionary *)params;
+- (UIViewController *)Action_{{actionName}}:(NSDictionary *)params;
 {% endif %}
 
 @end

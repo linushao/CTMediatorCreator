@@ -1,5 +1,5 @@
 //
-//  {{moduleName}}ViewController.h
+//  YM{{targetName | title}}{{actionName | title}}ViewController.h
 //  Created by {{author}} on {{date}}.
 //  Copyright © {{year}}年 {{author}}. All rights reserved.
 //
@@ -11,13 +11,13 @@
     1、#import "CTMediator+NextModuleActions.h"（引入下一个模块的action）
 
     2、
-    UIViewController *viewController = [[CTMediator sharedInstance] mediator_NextModuleViewControllerWithParams:@{@"model":@"123456"}];
+    UIViewController *viewController = [[CTMediator sharedInstance] mediator_actionName:@{@"model":@"123456"}];
     [self.navigationController pushViewController:viewController animated:YES];
 */
 
 
 
-#import "{{moduleName}}ViewController.h"
+#import "YM{{targetName | title}}{{actionName | title}}ViewController.h"
 
 // Tools
 
@@ -30,10 +30,10 @@
 // Requests
 
 // Actions
-//#import "CTMediator+<#module#>Actions.h"
+//#import "CTMediator+<#actionName#>Actions.h"
 
 
-@interface {{moduleName}}ViewController ()
+@interface YM{{targetName | title}}{{actionName | title}}ViewController ()
 
 // Data
 //@property (nonatomic, copy) NSArray *dataSource;
@@ -45,7 +45,7 @@
 
 @end
 
-@implementation {{moduleName}}ViewController
+@implementation YM{{targetName | title}}{{actionName | title}}ViewController
 
 #pragma mark - LifeCycle（声明周期）
 - (void)viewDidLoad {
@@ -59,7 +59,7 @@
 #pragma mark - UI（自定义UI）
 - (void)setupSubviews
 {
-    self.view.backgroundColor = color_ffffff;
+    self.view.backgroundColor = [UIColor whiteColor];
     [self addLayout];
 }
 
@@ -79,6 +79,9 @@
 }
 
 
+#pragma mark - Action（响应事件）
+
+
 #pragma mark - Property（属性）
 
 
@@ -92,9 +95,6 @@
 
 
 #pragma mark - Public Method（公有方法）
-
-
-#pragma mark - Action（响应事件）
 
 
 #pragma mark - Network（网络事件）

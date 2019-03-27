@@ -31,4 +31,5 @@
 
 @interface {{moduleName}}ViewModel : NSObject
 //@property (nonatomic, copy) NSString *<#text#>;
+//@property (nonatomic, assign) BOOL <#text#>;
 @end

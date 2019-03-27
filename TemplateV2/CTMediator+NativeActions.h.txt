@@ -1,0 +1,15 @@
+//
+//  CTMediator+{{actionName}}Actions.h
+//
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import <CTMediator/CTMediator.h>
+#import <UIKit/UIKit.h>
+
+@interface CTMediator ({{actionName}}Actions)
+
+- (UIViewController *)mediator_{{targetName|lower}}{{actionName|title}}:(NSDictionary *)dict;
+
+@end

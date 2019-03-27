@@ -1,0 +1,11 @@
+//
+//  YM{{targetName | title}}{{actionName | title}}ViewController.h
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+#import <YMBase/YMViewController.h>
+
+@interface YM{{targetName | title}}{{actionName | title}}ViewController : YMViewController
+
+@end
