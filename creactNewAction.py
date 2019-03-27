@@ -38,7 +38,7 @@ def main():
 
 
 
-    dir_path = './' + targetName
+    dir_path = './' + targetName.capitalize() + actionName.capitalize()
     tools.mkDir(dir_path)
 
     Controllers_path = dir_path+'/Controllers'
