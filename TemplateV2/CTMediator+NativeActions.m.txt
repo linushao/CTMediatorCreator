@@ -1,11 +1,11 @@
 //
-//  CTMediator+{{actionName}}Actions.h
+//  CTMediator+{{targetName|title}}{{actionName|title}}Actions.h
 //
 //  Created by {{author}} on {{date}}.
 //  Copyright © {{year}}年 {{author}}. All rights reserved.
 //
 
-#import "CTMediator+{{targetName|lower}}{{actionName|title}}Actions.h"
+#import "CTMediator+{{targetName|title}}{{actionName|title}}Actions.h"
 
 @implementation CTMediator ({{actionName}}Actions)
 
