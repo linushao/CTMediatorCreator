@@ -6,6 +6,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import <STDTableView/UITableView+STDTableView.h>
 
 #define k{{moduleName}}ViewHeight  <#Height#>
 
@@ -32,4 +33,10 @@
 @interface {{moduleName}}ViewModel : NSObject
 //@property (nonatomic, copy) NSString *<#text#>;
 //@property (nonatomic, assign) BOOL <#text#>;
+@end
+
+
+
+@interface {{moduleName}}TableViewCell : STDTableViewCell
+@property (nonatomic, strong) {{moduleName}}View *originView;
 @end

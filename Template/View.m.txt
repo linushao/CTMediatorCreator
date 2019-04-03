@@ -87,6 +87,7 @@
 
 - (void)addLayout
 {
+    __block CGFloat offset = 15;
     __weak typeof(self) weakSelf = self;
     
 }
@@ -115,4 +116,26 @@
 
 
 @implementation {{moduleName}}ViewModel
+@end
+
+
+
+@implementation {{moduleName}}TableViewCell
+- (void)buildSubview
+{
+    safeInitClass(self.originView, {{moduleName}}View);
+    safeAddSubview(self.originView, self.contentView);
+
+    [self.originView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.top.bottom.offset(0);
+    }];
+}
+- (void)loadContent
+{
+    if ([self.data isKindOfClass:[{{moduleName}}ViewModel class]]) {
+        [self.originView updateWithModel:self.data];
+    }
+
+    self.item.cellHeight = k{{moduleName}}ViewHeight;
+}
 @end

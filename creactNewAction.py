@@ -44,7 +44,7 @@ def main():
     Controllers_path = dir_path+'/Controllers'
 #    Models_path = dir_path+'/Models'
 #    Views_path = dir_path+'/Views'
-    Mediator_path = dir_path+'/Mediator'
+    Mediator_path = dir_path+'/Actions'
 
 
     tools.mkDir(Controllers_path)

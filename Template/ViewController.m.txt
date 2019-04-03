@@ -47,12 +47,15 @@
 
 @implementation {{moduleName}}ViewController
 
-#pragma mark - LifeCycle（声明周期）
+#pragma mark - LifeCycle（生命周期）
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    [self setNavigationBarTitle:LS(@"<#title#>")];
     [self setupSubviews];
+
+    [self requestData];
 }
 
 
@@ -75,6 +78,7 @@
 
 - (void)addLayout
 {
+    __block CGFloat offset = 15;
     __weak typeof(self) weakSelf = self;
 }
 
@@ -89,6 +93,11 @@
 
 
 #pragma mark - Private Method（私有方法）
+#pragma mark 刷新UI
+- (void)updateContent
+{
+
+}
 
 
 #pragma mark - Public Method（公有方法）
@@ -98,7 +107,17 @@
 
 
 #pragma mark - Network（网络事件）
-
+- (void)requestData
+{
+    NSDictionary *dic = @{};
+    <#YMRequest#> *api = [[<#YMRequest#> alloc] initWithParam:dic];
+    
+    [api requestWithSuccess:^(NSDictionary *data) {
+        DLogFunction
+    } complete:^{
+        DLogFunction
+    }];
+}
 
 
 
