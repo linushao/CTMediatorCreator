@@ -1,7 +1,7 @@
 //
-//  YM{{targetName | title}}{{actionName | title}}ViewController.h
-//  Created by {{author}} on {{date}}.
-//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//  YMMobileIndexViewController.h
+//  Created by ace on 2019/04/10.
+//  Copyright © 2019年 ace. All rights reserved.
 //
 
 
@@ -17,7 +17,7 @@
 
 
 
-#import "YM{{targetName | title}}{{actionName | title}}ViewController.h"
+#import "YMMobileIndexViewController.h"
 
 // Tools
 
@@ -33,7 +33,7 @@
 //#import "CTMediator+<#actionName#>Actions.h"
 
 
-@interface YM{{targetName | title}}{{actionName | title}}ViewController ()
+@interface YMMobileIndexViewController ()
 
 // Data
 //@property (nonatomic, copy) NSArray *dataSource;
@@ -45,7 +45,7 @@
 
 @end
 
-@implementation YM{{targetName | title}}{{actionName | title}}ViewController
+@implementation YMMobileIndexViewController
 
 #pragma mark - LifeCycle（生命周期）
 - (void)viewDidLoad {
