@@ -22,12 +22,6 @@
 
 
 #pragma mark - Public Method（公有方法）
-+ (CGFloat)viewHeight
-{
-    return k{{moduleName}}ViewHeight;
-}
-
-
 - (CGFloat)countHeight
 {
     [self layoutIfNeeded];
@@ -136,6 +130,6 @@
         [self.originView updateWithModel:self.data];
     }
 
-    self.item.cellHeight = k{{moduleName}}ViewHeight;
+    self.item.cellHeight = self.item.cellHeight ?: k{{moduleName}}ViewHeight;
 }
 @end

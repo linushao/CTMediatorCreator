@@ -19,8 +19,6 @@
 
 //@property (nonatomic, weak) id <{{moduleName}}ViewDelegate> delegate;
 
-/// 页面高度
-+ (CGFloat)viewHeight;
 /// 页面计算高度
 - (CGFloat)countHeight;
 
