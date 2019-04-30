@@ -37,7 +37,7 @@
 }
 
 
-#pragma mark - LifeCycle（声明周期）
+#pragma mark - LifeCycle（生命周期）
 - (instancetype)init
 {
     self = [super init];
@@ -117,6 +117,8 @@
 @implementation {{moduleName}}TableViewCell
 - (void)buildSubview
 {
+    //self.selectionStyle = UITableViewCellSelectionStyleNone;
+
     safeInitClass(self.originView, {{moduleName}}View);
     safeAddSubview(self.originView, self.contentView);
 

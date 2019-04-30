@@ -18,6 +18,24 @@ def main():
             print('输错，再输一遍')
 
 
+    while (1):
+        strNeedTable = input("是否需要TableView（y/n）n：").lower();
+        if strNeedTable == '':
+            isNeedTable = False
+            break;
+        else:
+            if strNeedTable == 'y':
+                isNeedTable = True
+                break;
+
+            elif strNeedTable == 'n':
+                isNeedTable = False
+                break;
+
+            else:
+                print('输错，再输一遍')
+
+
     isNative = False;
 
     while (1):
@@ -51,9 +69,27 @@ def main():
     tools.mkDir(Mediator_path)
 
 
-    saveController(Controllers_path, targetName, actionName, isNative)
+    if isNeedTable == True:
+        saveTableViewController(Controllers_path, targetName, actionName, isNative)
+    else:
+        saveController(Controllers_path, targetName, actionName, isNative)
+
+
     saveMediatorTarget(Mediator_path, targetName, actionName, isNative)
     saveMediatorAction(Mediator_path, targetName, actionName, isNative)
+
+
+def saveTableViewController(dir_path, targetName, actionName, isNative):
+    hname = 'YM'+targetName.capitalize()+actionName.capitalize()
+    # 创建.h文件
+    h_path_w = '%s/%sViewController.h' % (dir_path, hname)
+    h_path_r = './TemplateV2/ViewController.h.txt'
+    saveOCFile(targetName, actionName, h_path_w, h_path_r, isNative)
+
+    # 创建保存.m文件
+    m_path_w = dir_path + '/' + hname + 'ViewController.m'
+    m_path_r = './TemplateV2/TableViewController.m.txt'
+    saveOCFile(targetName, actionName, m_path_w, m_path_r, isNative)
 
 
 def saveController(dir_path, targetName, actionName, isNative):

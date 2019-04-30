@@ -1,0 +1,228 @@
+//
+//  YM{{targetName | title}}{{actionName | title}}ViewController.h
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{year}}年 {{author}}. All rights reserved.
+//
+
+
+/**
+    用法：
+    用NSDictionary传递参数
+    1、#import "CTMediator+NextModuleActions.h"（引入下一个模块的action）
+
+    2、
+    UIViewController *viewController = [[CTMediator sharedInstance] mediator_actionName:@{@"model":@"123456"}];
+    [self.navigationController pushViewController:viewController animated:YES];
+*/
+
+
+
+#import "YM{{targetName | title}}{{actionName | title}}ViewController.h"
+
+// Tools
+#import <YMBase/UIViewController+YMExtension.h>
+
+// Data
+
+// Views
+
+// Models
+
+// Requests
+
+// Actions
+//#import "CTMediator+<#actionName#>Actions.h"
+
+
+#define kLimit  10
+
+
+@interface YM{{targetName | title}}{{actionName | title}}ViewController ()<UITableViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+
+@property (nonatomic, assign) NSInteger start;
+
+// Data
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
+// Models
+
+// Views
+//@property (nonatomic, strong) <#View#> *<#View#>;
+@property (nonatomic, strong) UITableView *tableView;
+
+@end
+
+@implementation YM{{targetName | title}}{{actionName | title}}ViewController
+
+#pragma mark - LifeCycle（生命周期）
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+
+    [self setNavigationBarTitle:LS(@"<#key#>")];
+
+    [self setupSubviews];
+
+    YMWeakSelf;
+    [self setHeaderWithRefreshingBlock:^{
+        weakSelf.start = 0;
+        [weakSelf requestData];
+    }];
+    
+    [self setFooterWithRefreshingBlock:^{
+        weakSelf.start += kLimit;
+        [weakSelf requestData];
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
+    self.tableView.mj_footer.hidden = YES;
+}
+
+
+#pragma mark - UI（自定义UI）
+- (void)setupSubviews
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    [self addTableView];
+    [self addLayout];
+}
+
+
+- (void)addTableView
+{
+    safeInitClass(self.tableView, UITableView);
+    safeAddSubview(self.tableView, self.view);
+
+    //[self addEmptyDataViewWithTableView:self.tableView emptyText:<#(NSString *)#>];
+    
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    
+    
+    self.tableView.delegate = self;
+    self.tableView.std_cellDelegate = self;
+    self.tableView.std_viewController = self;
+    
+    //self.tableView.rowHeight = 100;
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 0;
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0.001)];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    
+    [self.tableView std_registerCellClass:[YMTableViewCell class]];
+    [self.tableView std_creatDataSource];
+    
+    
+    STDTableViewSection *sectionData = [[STDTableViewSection alloc] initWithItems:self.dataSource cellClass:[YMTableViewCell class]];
+    [self.tableView std_addSection:sectionData];
+}
+
+
+/**
+- (void)add<#View#>
+{
+    safeInitClass(<#obj#>, <#class#>);
+    safeAddSubview(<#view#>, <#superView#>);
+}
+ */
+
+
+- (void)addLayout
+{
+    __block CGFloat offset = 15;
+    __weak typeof(self) weakSelf = self;
+    
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.offset(0);
+    }];
+}
+
+
+#pragma mark - Action（响应事件）
+
+
+#pragma mark - Property（属性）
+- (NSMutableArray *)dataSource
+{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+}
+
+
+#pragma mark - Delegate（代理)
+#pragma mark TableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    STDTableViewItem *item = [tableView std_itemAtIndexPath:indexPath];
+    return item.cellHeight;
+}
+
+/*
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return [STDTableViewHeaderFooterView heightForHeaderInTableView:tableView section:section];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return [STDTableViewHeaderFooterView heightForFooterInTableView:tableView section:section];
+}
+*/
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView std_cellSelectedCallbackWithIndexPath:indexPath];
+}
+
+
+#pragma mark - Notification（通知）
+
+
+#pragma mark - Private Method（私有方法）
+
+
+#pragma mark - Public Method（公有方法）
+
+
+#pragma mark - Network（网络事件）
+- (void)requestData
+{
+/*
+    NSDictionary *dic = @{
+                          @"<#code#>": <#code#>,
+                          };
+    <#YMRequest#> *api = [[<#YMRequest#> alloc] initWithParam:dic];
+    YMWeakSelf;
+    [api requestWithSuccess:^(NSDictionary *data) {
+        if (self.start == 0) {
+            [self.tableView std_removeAllItemAtSection:0];
+            [self.dataSource removeAllObjects];
+        }
+        
+        //NSArray *arr = [NSArray yy_modelArrayWithClass:<#(nonnull Class)#> json:data[@"list"]];
+        
+        [self.tableView reloadData];
+        
+        //self.tableView.mj_footer.hidden = (arr.count < kLimit);
+    } complete:^{
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
+ */
+}
+
+
+
+
+@end
